@@ -10,4 +10,4 @@ while [ -h "$PRG" ]; do
   fi
 done
 PRGDIR=`dirname "$PRG"`
-java -Xms${java.xms}m -Xmx${java.xmx}m -XX:MaxMetaspaceSize=${java.MaxMetaspaceSize}m -XX:MaxPermSize=${java.MaxPermSize}m -XX:ReservedCodeCacheSize=${java.ReservedCodeCacheSize}m -jar "$PRGDIR/${artifactId}.jar" $1
+java -Xms${java.xms}m -Xmx${java.xmx}m -XX:MaxMetaspaceSize=${java.MaxMetaspaceSize}m -XX:MaxPermSize=${java.MaxPermSize}m -XX:ReservedCodeCacheSize=${java.ReservedCodeCacheSize}m -jar "$PRGDIR/${artifactId}.jar" $1 $2
