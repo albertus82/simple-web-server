@@ -16,12 +16,12 @@ public class SimpleWebServer {
 		final IHttpServerConfiguration httpServerConfiguration = new DefaultHttpServerConfiguration() {
 			@Override
 			public AbstractHttpHandler[] getHandlers() {
-				return new AbstractHttpHandler[] { new FilesHandler(args[0], "/") };
+				return new AbstractHttpHandler[] { new FilesHandler(args[1], "/") };
 			}
 
 			@Override
 			public int getPort() {
-				return 80;
+				return Integer.parseInt(args[0]);
 			}
 		};
 
