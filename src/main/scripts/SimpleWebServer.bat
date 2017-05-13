@@ -1,1 +1,1 @@
-java -Xms${java.xms}m -Xmx${java.xmx}m -XX:MaxMetaspaceSize=${java.MaxMetaspaceSize}m -XX:MaxPermSize=${java.MaxPermSize}m -XX:ReservedCodeCacheSize=${java.ReservedCodeCacheSize}m -jar "%~dp0${artifactId}.jar" %1 %2
+@java -Xms${java.xms}m -Xmx${java.xmx}m -XX:MaxMetaspaceSize=${java.MaxMetaspaceSize}m -XX:ReservedCodeCacheSize=${java.ReservedCodeCacheSize}m -jar "%~dp0${artifactId}.jar" %1 %2
