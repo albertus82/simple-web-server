@@ -1,7 +1,7 @@
 # SimpleWebServer
 
 ## Getting started
-```shell
+```Shell
 git clone https://github.com/Albertus82/SimpleWebServer.git
 cd SimpleWebServer
 mvn clean package
@@ -9,12 +9,12 @@ cd target
 ```
 
 * **Linux**
-  ```shell
+  ```Shell
   chmod 755 simple-web-server.sh
   ./simple-web-server.sh 8080 ~/webserver/
   ```
 
 * **Windows**
-  ```shell
+  ```Batchfile
   SimpleWebServer 8080 c:/webserver/
   ```
