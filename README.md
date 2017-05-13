@@ -8,13 +8,13 @@ mvn clean package
 cd target
 ```
 
-### Linux
-```shell
-chmod 755 simple-web-server.sh
-./simple-web-server.sh 8080 ~/webserver/
-```
+* **Linux**
+  ```shell
+  chmod 755 simple-web-server.sh
+  ./simple-web-server.sh 8080 ~/webserver/
+  ```
 
-### Windows
-```shell
-SimpleWebServer 8080 c:/webserver/
-```
+* **Windows**
+  ```shell
+  SimpleWebServer 8080 c:/webserver/
+  ```
