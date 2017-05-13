@@ -1,4 +1,4 @@
-# SimpleWebServer
+# Simple Web Server
 
 ## Getting started
 ```Shell
