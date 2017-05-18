@@ -13,7 +13,6 @@ cd target
 
 * **Linux**
   ```Shell
-  chmod 755 simple-web-server.sh
   ./simple-web-server.sh 8080 ~/webserver/
   ```
 
