@@ -7,7 +7,7 @@
 	<name>Simple Web Server</name>
 
 	<properties>
-		<version.date>2017-05-17</version.date>
+		<version.date>2017-05-18</version.date>
 		<jar.name>${project.artifactId}</jar.name>
 		<lib.directory>lib</lib.directory>
 		<java.xms>4</java.xms>
