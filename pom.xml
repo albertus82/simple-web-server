@@ -188,6 +188,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
+							<useUniqueVersions>false</useUniqueVersions>
 							<classpathPrefix>${lib.directory}</classpathPrefix>
 							<mainClass>it.albertus.httpserver.SimpleWebServer</mainClass>
 						</manifest>
