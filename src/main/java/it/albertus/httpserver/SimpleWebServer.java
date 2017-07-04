@@ -1,11 +1,5 @@
 package it.albertus.httpserver;
 
-import it.albertus.httpserver.AbstractHttpHandler;
-import it.albertus.httpserver.DefaultHttpServerConfiguration;
-import it.albertus.httpserver.FilesHandler;
-import it.albertus.httpserver.IHttpServerConfiguration;
-import it.albertus.httpserver.LightweightHttpServer;
-
 public class SimpleWebServer {
 
 	private SimpleWebServer() {
@@ -26,12 +20,7 @@ public class SimpleWebServer {
 		};
 
 		final LightweightHttpServer server = new LightweightHttpServer(httpServerConfiguration);
-		Runtime.getRuntime().addShutdownHook(new Thread() {
-			@Override
-			public void run() {
-				server.stop();
-			}
-		});
+		Runtime.getRuntime().addShutdownHook(new Thread(server::stop));
 		server.start(false);
 	}
 
