@@ -1,5 +1,8 @@
 package it.albertus.httpserver;
 
+import it.albertus.httpserver.config.HttpServerDefaultConfig;
+import it.albertus.httpserver.config.IHttpServerConfig;
+
 public class SimpleWebServer {
 
 	private SimpleWebServer() {
@@ -7,7 +10,7 @@ public class SimpleWebServer {
 	}
 
 	public static void main(final String... args) {
-		final IHttpServerConfiguration httpServerConfiguration = new DefaultHttpServerConfiguration() {
+		final IHttpServerConfig configuration = new HttpServerDefaultConfig() {
 			@Override
 			public AbstractHttpHandler[] getHandlers() {
 				return new AbstractHttpHandler[] { new FilesHandler(args[1], "/") };
@@ -19,7 +22,7 @@ public class SimpleWebServer {
 			}
 		};
 
-		final LightweightHttpServer server = new LightweightHttpServer(httpServerConfiguration);
+		final LightweightHttpServer server = new LightweightHttpServer(configuration);
 		Runtime.getRuntime().addShutdownHook(new Thread(server::stop));
 		server.start(false);
 	}
