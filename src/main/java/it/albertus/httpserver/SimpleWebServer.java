@@ -13,7 +13,7 @@ public class SimpleWebServer {
 		final IHttpServerConfig configuration = new HttpServerDefaultConfig() {
 			@Override
 			public AbstractHttpHandler[] getHandlers() {
-				return new AbstractHttpHandler[] { new FilesHandler(args[1], "/") };
+				return new AbstractHttpHandler[] { new FilesHandler(this, args[1], "/") };
 			}
 
 			@Override
