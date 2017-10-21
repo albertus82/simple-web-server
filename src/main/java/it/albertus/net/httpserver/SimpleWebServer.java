@@ -1,4 +1,4 @@
-package it.albertus.httpserver;
+package it.albertus.net.httpserver;
 
 import it.albertus.net.httpserver.AbstractHttpHandler;
 import it.albertus.net.httpserver.FilesHandler;

@@ -7,7 +7,7 @@
 	<name>Simple Web Server</name>
 
 	<properties>
-		<version.date>2017-08-05</version.date>
+		<version.date>2017-10-21</version.date>
 		<jar.name>${project.artifactId}</jar.name>
 		<lib.directory>lib</lib.directory>
 		<java.xms>4</java.xms>
@@ -191,7 +191,7 @@
 							<addClasspath>true</addClasspath>
 							<useUniqueVersions>false</useUniqueVersions>
 							<classpathPrefix>${lib.directory}</classpathPrefix>
-							<mainClass>it.albertus.httpserver.SimpleWebServer</mainClass>
+							<mainClass>it.albertus.net.httpserver.SimpleWebServer</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
