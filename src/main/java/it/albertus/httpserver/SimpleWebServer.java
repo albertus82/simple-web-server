@@ -1,7 +1,10 @@
 package it.albertus.httpserver;
 
-import it.albertus.httpserver.config.HttpServerDefaultConfig;
-import it.albertus.httpserver.config.IHttpServerConfig;
+import it.albertus.net.httpserver.AbstractHttpHandler;
+import it.albertus.net.httpserver.FilesHandler;
+import it.albertus.net.httpserver.LightweightHttpServer;
+import it.albertus.net.httpserver.config.HttpServerDefaultConfig;
+import it.albertus.net.httpserver.config.IHttpServerConfig;
 
 public class SimpleWebServer {
 
