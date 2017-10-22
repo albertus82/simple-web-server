@@ -5,6 +5,7 @@
 	<artifactId>simple-web-server</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>Simple Web Server</name>
+	<url>https://github.com/Albertus82/SimpleWebServer</url>
 
 	<properties>
 		<version.date>2017-10-21</version.date>
