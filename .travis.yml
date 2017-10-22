@@ -17,4 +17,5 @@ env:
     - secure: "XNPESbUbcYObYY7aQ/IOU/rXiCX4eoU4Moumkm4b+na06bnzVqeWzKA98M6lXhQAgUCDFciz6vI67pH9YwI32n9DJpZzzP3BBSeplah/FtUEZVR7EE+A80N2L+cWtZAeDjzi70VtgZdm7kTN8sB6tvhWpw8xHrkBxKz3UE3L0cRpKRKE1eBpXaMERwRrW58+jhpnTTaLZNB1ASGbD1JixHoFt5JbsKQ8mggAyskRBBPAuazIlhR/qHWcDHP0v5mLN4mKBajFzqBnDjczXoWQeSJxaUzuyBSlz8eOr+eNBtWvynmig520pLr22R1nh7K+WUWnrD/GmPWBG7rfTmXY0CJojqFwe25qHKP638754EjyAszmy7u0o7zRcBfM54eJk0CI6Fav8y7cU8PF3sdYid2kGJiFqpK3NthbGK6Y/xz/gX6Fmm/K91RDpMrHiS7qp14O0xld4Ol18kfyyfkBXRwllaverfb0qvvaHmy5U85HIzHkR8N2R50Rc0nw0RMVK67WBe/DfvoLjHFP6xzXmGmBhlXFeOf6KlqnUf5z99JeT04TRib1vTKdFO3F+3Icv54lTlJHAU7P3UFJ/oMRZqtNYfldZLFUUNRE0MihXrA7NSszp26GjHJatBJh9bWgeXF7CsLNu5VbG0g2Ld1ld4nk7YBABpeu9Kk3enZrdWg="
 
 script:
+  - mvn clean package
   - if [ "$TRAVIS_JDK_VERSION" == "oraclejdk9" ]; then mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar; else mvn deploy; fi;
