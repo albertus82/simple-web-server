@@ -6,9 +6,14 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<name>Simple Web Server</name>
 	<url>https://github.com/Albertus82/SimpleWebServer</url>
+	<licenses>
+		<license>
+			<url>http://unlicense.org/UNLICENSE</url>
+		</license>
+	</licenses>
 
 	<properties>
-		<version.date>2017-10-21</version.date>
+		<version.date>2017-10-23</version.date>
 		<jar.name>${project.artifactId}</jar.name>
 		<lib.directory>lib</lib.directory>
 		<java.xms>4</java.xms>
@@ -138,7 +143,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.6.1</version>
+				<version>3.7.0</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
 					<source>${compile.source.jdk}</source>
@@ -157,7 +162,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>3.1.0</version>
 				<configuration>
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
@@ -167,7 +172,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>3.0.2</version>
 				<executions>
 					<execution>
 						<id>copy-dependencies</id>
