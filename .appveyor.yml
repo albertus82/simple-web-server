@@ -14,8 +14,7 @@ environment:
       JAVA_HOME: $(ChocolateyInstall)\lib\jvm\jdk9
 
 cache:
-  - $(ChocolateyInstall)\lib -> .appveyor.yml
-  - $(ChocolateyInstall)\bin -> .appveyor.yml
+  - $(ChocolateyInstall)\lib\maven -> .appveyor.yml
 
 install:
   - ps: If ($env:JAVA_HOME -eq ($env:ChocolateyInstall + '\lib\jvm\jdk9')) { cinst jdk9 -i -params 'installdir=C:\\ProgramData\\chocolatey\\lib\\jvm\\jdk9' }
