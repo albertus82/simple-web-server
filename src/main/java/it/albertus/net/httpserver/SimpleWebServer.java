@@ -11,7 +11,7 @@ public class SimpleWebServer {
 	private SimpleWebServer() {
 		throw new IllegalAccessError();
 	}
- 
+
 	public static void main(final String... args) {
 		final IHttpServerConfig configuration = new HttpServerDefaultConfig() {
 			@Override
