@@ -13,7 +13,7 @@
 	</licenses>
 
 	<properties>
-		<version.date>2017-10-23</version.date>
+		<version.date>2017-11-12</version.date>
 		<jar.name>${project.artifactId}</jar.name>
 		<lib.directory>lib</lib.directory>
 		<java.xms>4</java.xms>
