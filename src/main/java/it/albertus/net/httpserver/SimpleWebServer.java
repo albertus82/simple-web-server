@@ -4,24 +4,35 @@ import it.albertus.net.httpserver.config.HttpServerDefaultConfig;
 
 public class SimpleWebServer {
 
-	private SimpleWebServer() {
-		throw new IllegalAccessError();
-	}
+	private LightweightHttpServer server;
 
 	public static void main(final String... args) {
-		final LightweightHttpServer server = new LightweightHttpServer(new HttpServerDefaultConfig() {
+		new SimpleWebServer(Integer.parseInt(args[0]), args[1]).server.start(false);
+	}
+
+	public SimpleWebServer(final int port, final String basePath) {
+		if (port < 1 || port > 0xFFFF) {
+			throw new IllegalArgumentException("Port out of range: " + port);
+		}
+		if (basePath == null) {
+			throw new NullPointerException("Invalid base path: " + basePath);
+		}
+		server = new LightweightHttpServer(new HttpServerDefaultConfig() {
 			@Override
 			public HttpPathHandler[] getHandlers() {
-				return new HttpPathHandler[] { new FilesHandler(this, args[1], "/") };
+				return new HttpPathHandler[] { new FilesHandler(this, basePath, "/") };
 			}
 
 			@Override
 			public int getPort() {
-				return Integer.parseInt(args[0]);
+				return port;
 			}
 		});
 		Runtime.getRuntime().addShutdownHook(new Thread(server::stop));
-		server.start(false);
+	}
+
+	LightweightHttpServer getServer() {
+		return server;
 	}
 
 }
