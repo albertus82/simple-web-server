@@ -19,6 +19,18 @@ public class SimpleWebServerTest {
 	}
 
 	@Test
+	public void testMain() {
+		try {
+			SimpleWebServer.main("8080x", "");
+			Assert.assertTrue(false);
+		}
+		catch (final NumberFormatException e) {
+			Assert.assertNotNull(e);
+			e.printStackTrace();
+		}
+	}
+
+	@Test
 	public void testOk() throws InterruptedException {
 		server = new SimpleWebServer(new Random().nextInt(65535 - 1024) + 1024, ".").getServer();
 		startServer();
@@ -31,8 +43,17 @@ public class SimpleWebServerTest {
 			server = new SimpleWebServer(new Random().nextInt(65535) + 65536, ".").getServer();
 			Assert.assertTrue(false);
 		}
-		catch (final IllegalArgumentException e) {
-			Assert.assertNotNull(e);
+		catch (final IllegalArgumentException e1) {
+			Assert.assertNotNull(e1);
+			e1.printStackTrace();
+			try {
+				server = new SimpleWebServer(-1 * (new Random().nextInt(65535) + 65536), ".").getServer();
+				Assert.assertTrue(false);
+			}
+			catch (final IllegalArgumentException e2) {
+				Assert.assertNotNull(e2);
+				e2.printStackTrace();
+			}
 		}
 	}
 
