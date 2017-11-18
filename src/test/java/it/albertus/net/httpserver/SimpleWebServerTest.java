@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,8 +19,13 @@ public class SimpleWebServerTest {
 		}
 	}
 
+	@AfterClass
+	public static void testMainOk() {
+		SimpleWebServer.main("8080", "");
+	}
+
 	@Test
-	public void testMain() {
+	public void testMainKo() {
 		try {
 			SimpleWebServer.main("8080x", "");
 			Assert.assertTrue(false);
