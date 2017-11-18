@@ -2,6 +2,7 @@ package it.albertus.net.httpserver;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -22,6 +23,7 @@ public class SimpleWebServerTest {
 	@AfterClass
 	public static void testMainOk() {
 		SimpleWebServer.main("8080", "");
+		Assert.assertTrue(true);
 	}
 
 	@Test
@@ -37,7 +39,7 @@ public class SimpleWebServerTest {
 	}
 
 	@Test
-	public void testOk() throws InterruptedException {
+	public void testOk() throws InterruptedException, TimeoutException {
 		server = new SimpleWebServer(new Random().nextInt(65535 - 1024) + 1024, ".").getServer();
 		startServer();
 		Assert.assertTrue(true);
@@ -74,7 +76,7 @@ public class SimpleWebServerTest {
 		}
 	}
 
-	private static void startServer() throws InterruptedException {
+	private static void startServer() throws InterruptedException, TimeoutException {
 		server.start();
 		final int retryPeriod = 100; // ms
 		final int timeout = 10000; // ms
@@ -89,6 +91,9 @@ public class SimpleWebServerTest {
 			}
 		}
 		while (!server.isRunning() && time < timeout);
+		if (time >= timeout && !server.isRunning()) {
+			throw new TimeoutException("Cannot start the server.");
+		}
 	}
 
 }
