@@ -15,4 +15,4 @@ addons:
     organization: "albertus82-github"
 
 script:
-  - if [ "$TRAVIS_JDK_VERSION" == "oraclejdk8" ]; then mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar; else mvn package; fi;
+  - if [ $SONAR_TOKEN ]; then mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar; else mvn package; fi;
