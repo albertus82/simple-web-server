@@ -11,7 +11,9 @@ matrix:
           organization: "albertus82-github"
       env:
         - secure: "ShlO3KEMQn2wOlDDvJL5N4roaScVUPCImmQImmRr9v4mBM/mh7IhhJ+/pYjrkngu+6KI14Um05KyA5VhQhpDVYrKBJdvXj/WW3nmtclZazn4+dx5/yHwfs/rXVJsAAeS0YaZnq46Yroy6pIWyEdRQm1FXY65tTCrrkbWWVnUgQBgVTwJy80YcTQPA21tylFomDPWhlJ4AXDJ/oIjbBKpE1cFSbCVwHpQvNyYBDle9teqCLffiMPgZe3XvdT28PTPBt3nEYz075wnG1UTatzqaJQhpFQJhFvvDg2+Rg6fHqQXGEQ1KWMfGujio9giIDOor/orsC1kS7gdWk+wBhIPC06HHqgA595Zvr5rkIFxewBUgSyQrOO5FMCbFdPj5Kiq8ly0NES5svJ8nlzqjw1BIUPwOk55KMLjayz30mmfdMuAql0YUHAEhK9YPB1LGK8PqPrytB4v0ba0RoflaNOlcz+hyI/oh2iMRrscQJ0q4vuhD2pMKF5TVOtZ1IFknhkURqvMbPX7IwLTjGKRmi0xCjMXtxOjc87cP5HXvAeZxwj2bV71us36DDB0N9SGTWt4AdGnjgvRapXNfbqFw5wM3stPTxomqVQXJUqtN4MXt/o4C2cfSFo8O0VXUqytXIGiDqEI4sbsy7MI2k0np2crGdbdRJ+cRv2LM136QMWkWm4="
+      script:
+        - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
     - os: osx
 
 script:
-  - if [ "$SONAR_TOKEN" ]; then mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar; else mvn package; fi;
+  - mvn package
