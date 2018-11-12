@@ -13,7 +13,6 @@
 	</licenses>
 
 	<properties>
-		<version.date>2017-11-18</version.date>
 		<jar.name>${project.artifactId}</jar.name>
 		<lib.directory>lib</lib.directory>
 		<java.xms>4</java.xms>
@@ -22,6 +21,8 @@
 		<java.ReservedCodeCacheSize>4</java.ReservedCodeCacheSize>
 		<compile.source.jdk>1.8</compile.source.jdk>
 		<compile.target.jdk>1.8</compile.target.jdk>
+		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+		<version.date>${maven.build.timestamp}</version.date>
 	</properties>
 
 	<profiles>
@@ -227,7 +228,7 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.7.9</version>
+				<version>0.8.2</version>
 				<executions>
 					<execution>
 						<id>default-prepare-agent</id>
