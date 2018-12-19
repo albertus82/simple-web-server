@@ -5,8 +5,8 @@
 
 ## Getting started
 ```Shell
-git clone https://github.com/Albertus82/SimpleWebServer.git
-cd SimpleWebServer
+git clone https://github.com/albertus82/simple-web-server
+cd simple-web-server
 mvn clean package
 cd target
 ```
