@@ -4,21 +4,24 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>it.albertus</groupId>
+	<groupId>com.example</groupId>
 	<artifactId>simple-web-server</artifactId>
 	<version>0.1.0</version>
+
 	<name>Simple Web Server</name>
 	<url>https://github.com/albertus82/simple-web-server</url>
 
 	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jar.name>${project.artifactId}</jar.name>
+		<main.class>it.albertus.net.httpserver.SimpleWebServer</main.class>
 		<lib.directory>lib</lib.directory>
 		<java.xms>4</java.xms>
 		<java.xmx>12</java.xmx>
 		<java.MaxMetaspaceSize>16</java.MaxMetaspaceSize>
 		<java.ReservedCodeCacheSize>4</java.ReservedCodeCacheSize>
-		<compile.source.jdk>1.8</compile.source.jdk>
-		<compile.target.jdk>1.8</compile.target.jdk>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<version.date>${maven.build.timestamp}</version.date>
 	</properties>
@@ -114,7 +117,7 @@
 						<configuration>
 							<rules>
 								<enforceBytecodeVersion>
-									<maxJdkVersion>${compile.target.jdk}</maxJdkVersion>
+									<maxJdkVersion>${maven.compiler.target}</maxJdkVersion>
 									<excludes>
 										<exclude>org.mindrot:jbcrypt</exclude>
 									</excludes>
@@ -131,16 +134,6 @@
 						<version>1.0-beta-9</version>
 					</dependency>
 				</dependencies>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.0</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					<source>${compile.source.jdk}</source>
-					<target>${compile.target.jdk}</target>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -209,7 +202,7 @@
 							<addClasspath>true</addClasspath>
 							<useUniqueVersions>false</useUniqueVersions>
 							<classpathPrefix>${lib.directory}</classpathPrefix>
-							<mainClass>it.albertus.net.httpserver.SimpleWebServer</mainClass>
+							<mainClass>${main.class}</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -224,10 +217,8 @@
 						<configuration>
 							<failOnError>false</failOnError>
 							<target>
-								<chmod perm="+x"
-									file="${project.build.directory}/${project.artifactId}.sh" />
-								<chmod perm="+x"
-									file="${project.build.directory}/${project.artifactId}.command" />
+								<chmod perm="+x" file="${project.build.directory}/${project.artifactId}.sh" />
+								<chmod perm="+x" file="${project.build.directory}/${project.artifactId}.command" />
 							</target>
 						</configuration>
 						<goals>
