@@ -5,7 +5,12 @@
 
 ## Minimum requirements
 
-* [Java](https://www.java.com) 8 (JRE 1.8)
+* Java SE Development Kit 8
+* [Apache Maven](https://maven.apache.org) 3.3.x
+
+## Build
+
+`mvn clean verify`
 
 ## Getting started
 
