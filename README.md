@@ -12,7 +12,7 @@
 ```Shell
 git clone https://github.com/albertus82/simple-web-server
 cd simple-web-server
-mvn clean package
+mvn clean verify
 cd target
 ```
 
