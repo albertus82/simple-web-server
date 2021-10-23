@@ -1,6 +1,6 @@
-package it.albertus.net.httpserver;
+package io.github.albertus82.net.httpserver;
 
-import it.albertus.net.httpserver.config.HttpServerDefaultConfig;
+import io.github.albertus82.net.httpserver.config.HttpServerDefaultConfig;
 
 public class SimpleWebServer {
 

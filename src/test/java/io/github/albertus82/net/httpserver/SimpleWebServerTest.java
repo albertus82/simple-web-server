@@ -1,4 +1,4 @@
-package it.albertus.net.httpserver;
+package io.github.albertus82.net.httpserver;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
