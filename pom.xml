@@ -133,6 +133,9 @@
 								<enforceBytecodeVersion>
 									<maxJdkVersion>${maven.compiler.target}</maxJdkVersion>
 								</enforceBytecodeVersion>
+								<requireMavenVersion>
+									<version>3.3.9</version>
+								</requireMavenVersion>
 							</rules>
 							<fail>true</fail>
 						</configuration>
@@ -178,7 +181,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.1.0</version>
+				<version>3.3.0</version>
 				<configuration>
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
@@ -260,7 +263,7 @@
 			<url>https://albertus82.github.io/maven</url>
 		</repository>
 	</repositories>
- 
+
 	<dependencies>
 		<dependency>
 			<groupId>io.github.albertus82</groupId>
