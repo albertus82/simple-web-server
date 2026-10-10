@@ -1,5 +1,7 @@
 package io.github.albertus82.net.httpserver;
 
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -8,6 +10,9 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Test;
+
+import picocli.CommandLine.ExitCode;
+import picocli.CommandLine.ParameterException;
 
 public class SimpleWebServerTest {
 
@@ -28,52 +33,29 @@ public class SimpleWebServerTest {
 
 	@Test
 	public void testMainKo() {
-		try {
-			SimpleWebServer.main("8080x", "");
-			Assert.assertTrue(false);
-		}
-		catch (final NumberFormatException e) {
-			Assert.assertNotNull(e);
-			e.printStackTrace();
-		}
+		Assert.assertEquals(ExitCode.USAGE, SimpleWebServer.call("8080x", ""));
 	}
 
 	@Test
-	public void testOk() throws InterruptedException, TimeoutException {
-		server = new SimpleWebServer(new Random().nextInt(65535 - 1024) + 1024, ".").getServer();
+	public void testOk() throws InterruptedException, TimeoutException, IOException {
+		server = new SimpleWebServer(new Random().nextInt(65535 - 1024) + 1024, Paths.get("."), false).getServer();
 		startServer();
 		Assert.assertTrue(true);
 	}
 
 	@Test
-	public void testWrongPort() throws InterruptedException {
-		try {
-			server = new SimpleWebServer(new Random().nextInt(65535) + 65536, ".").getServer();
-			Assert.assertTrue(false);
-		}
-		catch (final IllegalArgumentException e1) {
-			Assert.assertNotNull(e1);
-			e1.printStackTrace();
-			try {
-				server = new SimpleWebServer(-1 * (new Random().nextInt(65535) + 65536), ".").getServer();
-				Assert.assertTrue(false);
-			}
-			catch (final IllegalArgumentException e2) {
-				Assert.assertNotNull(e2);
-				e2.printStackTrace();
-			}
-		}
+	public void testWrongPort() throws InterruptedException, IOException {
+		Assert.assertThrows(ParameterException.class, () -> server = new SimpleWebServer(new Random().nextInt(65535) + 65536, Paths.get("."), false).getServer());
 	}
 
 	@Test
-	public void testWrongPath() throws InterruptedException {
-		try {
-			server = new SimpleWebServer(new Random().nextInt(65535 - 1024) + 1024, null).getServer();
-			Assert.assertTrue(false);
-		}
-		catch (final NullPointerException e) {
-			Assert.assertNotNull(e);
-		}
+	public void testNegativePort() throws InterruptedException, IOException {
+		Assert.assertThrows(ParameterException.class, () -> server = new SimpleWebServer(-1 * (new Random().nextInt(65536)), Paths.get("."), false).getServer());
+	}
+
+	@Test
+	public void testWrongPath() throws InterruptedException, IOException {
+		Assert.assertThrows(ParameterException.class, () -> server = new SimpleWebServer(new Random().nextInt(65535 - 1024) + 1024, null, false).getServer());
 	}
 
 	private static void startServer() throws InterruptedException, TimeoutException {

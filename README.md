@@ -24,10 +24,10 @@ cd target
 
 * **Linux**
   ```Shell
-  ./simple-web-server.sh 8080 ~/webserver/
+  ./serve.sh 8080 ~/webserver/
   ```
 
 * **Windows**
   ```Batchfile
-  SimpleWebServer 8080 c:/webserver/
+  serve 8080 c:/webserver/
   ```
