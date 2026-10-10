@@ -56,7 +56,7 @@
 						<directory>src/main/scripts</directory>
 						<filtering>true</filtering>
 						<includes>
-							<include>*.bat</include>
+							<include>*.cmd</include>
 						</includes>
 						<targetPath>${project.build.directory}</targetPath>
 					</resource>
